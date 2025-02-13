@@ -11,7 +11,6 @@ int main()
 	double res, tmp;
 	char c;
 	cout << "Before you start, see the instructions in the file MANUAL.txt in the root directory\n\n\n";
-	system("pause");
 	while (!end)
 	{
 		proceed = true;
