@@ -9,7 +9,7 @@ int main()
 	bool end = false, proceed = true, skip = false;
 	size_t sz, i;
 	double res, tmp;
-	char c;
+	char c = 0;
 	cout << "Before you start, see the instructions in the file MANUAL.txt in the root directory\n\n\n";
 	while (!end)
 	{
@@ -51,12 +51,18 @@ int main()
 					cout << "undetermined";
 				else
 					cout << res;
-				do
+				if (variable::GetValVec().GetSize() > 2)
 				{
-					cout << "\n\nWould you like to calculate the expression for other variables values? Y/N ";
-					cin >> c;
-				} while (c != 'Y' && c != 'y' && c != 'N' && c != 'n');
-				if (c == 'n' || c == 'N')
+					do
+					{
+						cout << "\n\nWould you like to calculate the expression for other variables values? Y/N ";
+						cin >> c;
+					} while (c != 'Y' && c != 'y' && c != 'N' && c != 'n');
+					if (c == 'n' || c == 'N')
+						proceed = false;
+					c = 0;
+				}
+				else
 					proceed = false;
 			}
 			do
@@ -66,6 +72,7 @@ int main()
 			} while (c != 'Y' && c != 'y' && c != 'N' && c != 'n');
 			if (c == 'n' || c == 'N')
 				end = true;
+			c = 0;
 		}
 		variable::GetValVec().clear();
 		variable::GetNameVec().clear();

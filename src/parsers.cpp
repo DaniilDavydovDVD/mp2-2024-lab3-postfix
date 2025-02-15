@@ -347,7 +347,7 @@ Vec<lexem*> MainParse(string const& s)
 				{
 					prior = stm->GetPriority();
 					_stm = SStmt.Top();
-					if (prior > _stm->GetPriority())
+					if (prior > _stm->GetPriority() || stm->GetId() == 7)
 						SStmt.Push(stm);
 					else
 					{
