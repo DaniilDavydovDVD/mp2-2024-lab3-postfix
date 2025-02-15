@@ -5,7 +5,7 @@ int main()
 {
 	ArithmeticExpression AE;
 	Vec<string>* Names=&(variable::GetNameVec());
-	string s;
+	string s, trash;
 	bool end = false, proceed = true, skip = false;
 	size_t sz, i;
 	double res, tmp;
@@ -51,6 +51,7 @@ int main()
 					cout << "undetermined";
 				else
 					cout << res;
+				getline(cin, trash);
 				if (variable::GetValVec().GetSize() > 2)
 				{
 					do
